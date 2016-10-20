@@ -3,20 +3,17 @@ node_js:
 - '5'
 branches:
   only:
-  - "/^v[0-9]/"
-before_deploy:
-- npm run build
-addons:
-  code_climate:
-    repo_token: #get repo_token from https://codeclimate.com/dashboard
-before_script:
-- npm install -g codeclimate-test-reporter
-after_script:
+  - /^v[0-9]/
+after_success:
 - npm run coverage
-- codeclimate-test-reporter < coverage/lcov.info
+- npm run mocha:json
+- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.octoblu.com/bash)
 deploy:
   provider: npm
   email: serveradmin@octoblu.com
-  skip_cleanup: true
+  api_key:
+    secure: mHPAbVgdtf/Kwb0cIgAHowa6HxZF3vf9eH0f3Y72abzqVS0cWR/BgwuLAqJsBstmfixEpwPTOKyG7VS1xnLe2VMaXjQsbZMg2Q/Dg4X73kArzUouYdGhwcyn14R+uDDPIFLK6NIBce/JMDsYF1Zuwr/420KpYrJwA03KxsOTD9QhwX7tv+Yh8d2CJnZn9qT5/vLYsmqa80elyeh0Bp8iykp5Dt+ebK2V5aO8pE3wkHcF4nQqeltRAI+wStla1oh+50EAwC5DXoceRs5QkBclp3eDfOJ98Nhdx6AJgrkiLjBGnIY5Kr60TXJEejxfY6Uh1qdvjKiT4KBHRX5TTPTXcgUSClz+Z0m4kIb9Aq9+HTc4g0QcOWiKm2+lm14IuIA2wtVsr4/KkJ/jouKI7qnm4j8ysQkiddNul0hvmiuezjpzx/hEgFu0YzYUDlAKAQI+5Wx4lIxEWy+fpyMoVMfBr7ndgQUm+4Ed1CxcCIrMixBSjk+6Cs2Mz97U7U68klKIMuEX9FAPvwu/k2mZOevbOIsIBMlRNSLsUPpClYSudxYxomVeLJttzljiCEKi+5mBJUR0Vtt8ShKWPNSwqLa6TmwB4RIL56+Ovl7MWQASzTxr/eZbcbKDvLL+Go7HmhGVhH4MwRop3I6PEViD4+wbTriSw9ZCrrICyogc5K8t4AQ=
   on:
     tags: true
+    branches: true
