@@ -1,6 +1,6 @@
 {
   "name": "zooid-dialog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dialog",
   "main": "dist/bundle.js",
   "scripts": {
