@@ -1,0 +1,10 @@
+.actions {
+  padding: 0 1em 1.25em;
+  background: #F8F8F8;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions > *:last-child {
+  margin-left: 1em;
+}
