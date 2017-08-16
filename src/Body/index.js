@@ -1,16 +1,20 @@
-import classNames from 'classnames'
-import noop from 'lodash.noop'
-import React, { PropTypes } from 'react'
+import classNames from "classnames"
+import PropTypes from "prop-types"
+import React from "react"
 
-import styles from './styles.css'
+import styles from "./styles.css"
 
 const propTypes = {
   children: PropTypes.node,
 }
 
 const Body = ({ children }) => {
-  const classes = classNames('Dialog-actions', styles.body)
-  return <div className={classes}>{children}</div>
+  const classes = classNames("Dialog-actions", styles.body)
+  return (
+    <div className={classes}>
+      {children}
+    </div>
+  )
 }
 
 Body.propTypes = propTypes

@@ -1,8 +1,7 @@
-import classNames from 'classnames'
-import noop from 'lodash.noop'
-import React, { PropTypes } from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
-import styles from './styles.css'
+import styles from "./styles.css"
 
 const propTypes = {
   title: PropTypes.string,
@@ -10,10 +9,14 @@ const propTypes = {
 }
 
 const Header = ({ children, title }) => {
-  let content = title;
+  let content = title
   if (children) content = children
 
-  return <header className={styles.header}>{content}</header>
+  return (
+    <header className={styles.header}>
+      {content}
+    </header>
+  )
 }
 
 Header.propTypes = propTypes

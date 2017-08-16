@@ -1,12 +1,13 @@
-import classNames from 'classnames'
-import React, { PropTypes } from 'react'
+import classNames from "classnames"
+import PropTypes from "prop-types"
+import React from "react"
 
-import styles from './styles.css'
+import styles from "./styles.css"
 
 const propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -25,7 +26,7 @@ const Dialog = ({ children, className, visible }) => {
   )
 }
 
-Dialog.propTypes    = propTypes
+Dialog.propTypes = propTypes
 Dialog.defaultProps = defaultProps
 
 export default Dialog
