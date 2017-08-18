@@ -1,7 +1,15 @@
+import styled from "emotion/react"
 import PropTypes from "prop-types"
 import React from "react"
 
-import styles from "./styles.css"
+const Container = styled.header`
+  padding: 1.25em 1em;
+  border-bottom: 2px solid #e8e8e8;
+
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+`
 
 const propTypes = {
   title: PropTypes.string,
@@ -13,9 +21,9 @@ const Header = ({ children, title }) => {
   if (children) content = children
 
   return (
-    <header className={styles.header}>
+    <Container>
       {content}
-    </header>
+    </Container>
   )
 }
 

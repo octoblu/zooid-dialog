@@ -1,19 +1,21 @@
-import classNames from "classnames"
+import styled from "emotion/react"
 import PropTypes from "prop-types"
 import React from "react"
 
-import styles from "./styles.css"
+const Container = styled.div`
+  padding: 1.75em 1em;
+  background: #f8f8f8;
+`
 
 const propTypes = {
   children: PropTypes.node,
 }
 
 const Body = ({ children }) => {
-  const classes = classNames("Dialog-actions", styles.body)
   return (
-    <div className={classes}>
+    <Container>
       {children}
-    </div>
+    </Container>
   )
 }
 

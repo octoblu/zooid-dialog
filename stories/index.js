@@ -1,12 +1,17 @@
-import React from 'react'
-import { storiesOf, action } from '@kadira/storybook'
+import React from "react"
+import { storiesOf } from "@storybook/react"
 
-import Dialog from '../src'
+import Dialog, { DialogHeader, DialogBody, DialogActions } from "../src"
 
-storiesOf('Dialog', module)
-  .addWithInfo('Basic', 'added Description', () => (
-    <Dialog />
-  ), { inline: true })
-  .add('Basic', () => (
-    <Dialog />
-  ))
+storiesOf("Dialog", module).add("Basic", () =>
+  <Dialog visible={true}>
+    <DialogHeader>Dialog Header</DialogHeader>
+    <DialogBody>
+      <p>lorem ipsum...</p>
+    </DialogBody>
+    <DialogActions>
+      <button>Button 1</button>
+      <button>Button 2</button>
+    </DialogActions>
+  </Dialog>
+)
